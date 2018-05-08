@@ -1,0 +1,62 @@
+<!--
+  Generated template for the PackagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card *ngFor="let packages of list$ | async">
+        <ion-card-content>
+         <h3> <ion-card-title>
+           {{packages.name}} 
+          </ion-card-title>
+          </h3>
+          <img src = "{{packages.img}}" ><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta, sapiente, excepturi nam esse harum nihil!!!</p>
+          
+        </ion-card-content>
+
+     
+          
+        <ion-row no-padding>
+          <ion-col>
+              <button ion-button icon-left clear small  color="danger">
+                <ion-icon name="pricetag"></ion-icon>
+                {{packages.price}}
+              </button>
+            </ion-col>
+
+            <ion-col>
+              <button ion-button icon-left clear small color="danger">
+                <ion-icon name="time"></ion-icon>
+                {{packages.plan}} 
+              </button>
+            </ion-col>
+
+          <ion-col text-center>
+            <button (click)="thanksMsg();" ion-button icon-left clear small color="danger">
+              <ion-icon name="arrow-dropright-circle"></ion-icon>
+              Subscribe
+            </button>
+          </ion-col>
+        </ion-row>
+     
+      
+    </ion-card>
+  
+    
+  
+    
+  </ion-content>
+  

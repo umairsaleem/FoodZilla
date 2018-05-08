@@ -1,0 +1,34 @@
+
+<ion-header>
+  <ion-navbar align-title="center">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="person"></ion-icon>Logout
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  
+    <ion-card (click)="openCategory()">
+      <img src="../../assets/imgs/fruits.jpg"/>
+      <div class="card-title">Fruit Package</div>
+      <div class="card-subtitle">300+ Subscribers</div>
+    </ion-card>
+  
+    <ion-card (click)="openCategory()">
+      <img src="../../assets/imgs/vegetable.jpg"/>
+      <div class="card-title">Vegetable Packages</div>
+      <div class="card-subtitle">250+ Subscribers</div>
+    </ion-card>
+  
+   
+  
+  </ion-content>
