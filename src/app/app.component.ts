@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { PackagesPage } from '../pages/packages/packages';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubscriptionPage} from '../pages/subscription/subscription'
+import { CategoryPage } from '../pages/category/category';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -35,7 +37,7 @@ export class MyApp {
      this.initializeApp();
 
      this.pages = [
-      { title: 'Packages' ,       component:PackagesPage},
+      { title: 'Home' ,       component:CategoryPage},
       { title: 'My Profile' ,     component:ProfilePage},
       { title: 'My Subcriptions', component:SubscriptionPage}
     
@@ -50,7 +52,7 @@ export class MyApp {
       
       let unsubscribe = this.afAuth.auth.onAuthStateChanged(user => {
         if (user) {
-          this.rootPage = PackagesPage;
+          this.rootPage = CategoryPage;
           unsubscribe();
         } else {
           this.rootPage = HomePage;

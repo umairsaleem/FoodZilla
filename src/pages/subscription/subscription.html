@@ -24,35 +24,16 @@
 
   <ion-list>
     
-    <ion-card>
+    <ion-card *ngFor="let item of items">
       <ion-card-header>
-        Daily Bread
-        <ion-toggle end color="secondary" checked="true" style="float:right"></ion-toggle>
+        {{item.SubscribedPackage}}
+        <ion-toggle end color="secondary" [(ngModel)]="item.isSubscribed" (ionChange)="updateItem(item)" style="float:right"></ion-toggle>
       </ion-card-header>
       <ion-card-content>
         Get fresh bread daily at your door.
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        Weekly Vegetable
-        <ion-toggle end color="secondary" checked="false" style="float:right"></ion-toggle>
-      </ion-card-header>
-      <ion-card-content>
-        Weekly Vegetable at your home
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        Monthly Medicine
-        <ion-toggle end color="secondary" checked="true" style="float:right"></ion-toggle>
-      </ion-card-header>
-      <ion-card-content>
-        Monthly drugs..
-      </ion-card-content>
-    </ion-card>
 
 </ion-list>
 </ion-content>

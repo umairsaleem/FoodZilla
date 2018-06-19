@@ -5,17 +5,39 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar >
+  <ion-navbar align-title="center">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+    
     <ion-title>Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="person"></ion-icon>Logout
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
+
 <ion-content>
 
+    <ion-list>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="pkgCategory" name="pkgCategory" (ionChange)="pickCategory(pkgCategory)">
+          <ion-option >Fruits</ion-option>
+          <ion-option >Vegetables</ion-option>
+          <ion-option >FastFood</ion-option>
+          
+        </ion-select>
+      </ion-item> 
+    </ion-list>
+
+    <page-loading-spinner *ngIf="showSpinner"></page-loading-spinner>
+    
     <ion-card *ngFor="let packages of list$ | async">
         <ion-card-content>
          <h3> <ion-card-title>
@@ -45,8 +67,8 @@
             </ion-col>
 
           <ion-col text-center>
-            <button (click)="thanksMsg();" ion-button icon-left clear small color="danger">
-              <ion-icon name="arrow-dropright-circle"></ion-icon>
+            <button (click)="thanksMsg(packages);" ion-button icon-left clear small color="danger">
+              <ion-icon  name="arrow-dropright-circle"></ion-icon>
               Subscribe
             </button>
           </ion-col>

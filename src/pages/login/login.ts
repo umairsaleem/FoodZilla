@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams ,  AlertController } from 'ionic-an
 import { AngularFireAuth } from 'angularfire2/auth';
 import { PackagesPage } from '../packages/packages';
 import { RegisterPage } from '../register/register';
+import { CategoryPage } from '../category/category';
+import * as firebase from 'firebase';
+
 
 
 /**
@@ -26,6 +29,7 @@ export class LoginPage {
               public navParams: NavParams,
               private fire:AngularFireAuth,
               private alertCtrl: AlertController) {
+                // end onAuthStateChanged
   }
 
   alert(message: string) {
@@ -49,14 +53,15 @@ export class LoginPage {
     .then( data => {
       console.log('got some data', this.fire.auth.currentUser);
       this.alert('Success! You\'re logged in');
-      this.navCtrl.setRoot( PackagesPage );
+      this.navCtrl.setRoot( CategoryPage );
       // user is logged in
     })
     .catch( error => {
       console.log('got an error', error);
       this.alert(error.message);
     })
-  	console.log('Would sign in with ', this.user.value, this.password.value);
-  }
+    console.log('Would sign in with ', this.user.value, this.password.value);
+    }
+  
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { PackageItem} from '../../app/models/package.model'
+import { PackageItem} from '../../app/models/package.model';
 
 /*
   Generated class for the PackageListProvider provider.
@@ -20,6 +20,12 @@ export class PackageListProvider {
 
   getList(){
     return this.$list;
+  }
+
+  filterCategory(pkgCategory){
+    return this.db.list<PackageItem>('packages',
+     ref => ref.orderByChild('category').equalTo(pkgCategory));
+    
   }
 
 

@@ -19,9 +19,11 @@ import { HomePage } from '../home/home';
 })
 export class ProfilePage {
 
+  userEmail;
   constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
-  
+  this.userEmail = this.afAuth.auth.currentUser.email;
   }
+
 
  
   ionViewDidLoad() {

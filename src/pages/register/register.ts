@@ -2,6 +2,8 @@ import { Component ,  ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams , AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
+import * as firebase from 'firebase';
+
 
 /**
  * Generated class for the RegisterPage page.
@@ -17,6 +19,7 @@ import { LoginPage } from '../login/login';
 })
 export class RegisterPage {
 
+  
   @ViewChild('username') user;
   @ViewChild('password') password;
 
@@ -41,7 +44,11 @@ export class RegisterPage {
   registerUser(){
       this.fire.auth.createUserWithEmailAndPassword(this.user.value,this.password.value)
       .then(data => {
-        console.log('got data ', data);
+        console.log('got data ', data.uid);
+        let userId = data.uid;
+        let userEmail = data.email;
+        let customerId = null;
+        firebase.database().ref('users').child(userId).set({userEmail,customerId})
         this.alert('Registered!');
         this.navCtrl.setRoot( LoginPage );
       })

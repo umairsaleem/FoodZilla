@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import  {PaymentServiceProvider} from '../../providers/payment-service/payment-service'
 /**
  * Generated class for the CheckOutPage page.
  *
@@ -15,7 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CheckOutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              ) {
   }
 
   ionViewDidLoad() {
