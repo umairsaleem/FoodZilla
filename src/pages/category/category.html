@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    
+
     <ion-title>Home</ion-title>
 
     <ion-buttons end>
@@ -23,62 +23,62 @@
 
 
 <ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="pkgCategory" name="pkgCategory" (ionChange)="pickCategory(pkgCategory)">
+        <ion-option>Fruits</ion-option>
+        <ion-option>Vegetables</ion-option>
+        <ion-option>FastFood</ion-option>
 
-    <ion-list>
-      <ion-item>
-        <ion-label>Category</ion-label>
-        <ion-select [(ngModel)]="pkgCategory" name="pkgCategory" (ionChange)="pickCategory(pkgCategory)">
-          <ion-option >Fruits</ion-option>
-          <ion-option >Vegetables</ion-option>
-          <ion-option >FastFood</ion-option>
-          
-        </ion-select>
-      </ion-item> 
-    </ion-list>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-    <page-loading-spinner *ngIf="showSpinner"></page-loading-spinner>
-    
-    <ion-card *ngFor="let packages of list$ | async">
-        <ion-card-content>
-         <h3> <ion-card-title>
-           {{packages.name}} 
-          </ion-card-title>
-          </h3>
-          <img src = "{{packages.img}}" ><br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta, sapiente, excepturi nam esse harum nihil!!!</p>
-          
-        </ion-card-content>
+  <page-loading-spinner *ngIf="showSpinner"></page-loading-spinner>
 
-     
-          
-        <ion-row no-padding>
-          <ion-col>
-              <button ion-button icon-left clear small  color="danger">
-                <ion-icon name="pricetag"></ion-icon>
-                {{packages.price}}
-              </button>
-            </ion-col>
+  <ion-card *ngFor="let packages of list$ | async">
+    <ion-card-content>
+      <h3>
+        <ion-card-title>
+          {{packages.name}}
+        </ion-card-title>
+      </h3>
+      <img src="{{packages.img}}">
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta, sapiente, excepturi nam esse harum nihil!!!</p>
 
-            <ion-col>
-              <button ion-button icon-left clear small color="danger">
-                <ion-icon name="time"></ion-icon>
-                {{packages.plan}} 
-              </button>
-            </ion-col>
+    </ion-card-content>
 
-          <ion-col text-center>
-            <button (click)="thanksMsg(packages);" ion-button icon-left clear small color="danger">
-              <ion-icon  name="arrow-dropright-circle"></ion-icon>
-              Subscribe
-            </button>
-          </ion-col>
-        </ion-row>
-     
-      
-    </ion-card>
-  
-    
-  
-    
-  </ion-content>
-  
+
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button icon-left clear small color="danger">
+          <ion-icon name="pricetag"></ion-icon>
+          {{packages.price}}
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button icon-left clear small color="danger">
+          <ion-icon name="time"></ion-icon>
+          {{packages.plan}}
+        </button>
+      </ion-col>
+
+      <ion-col text-center>
+        <button (click)="thanksMsg(packages);" ion-button icon-left clear small color="danger">
+          <ion-icon name="arrow-dropright-circle"></ion-icon>
+          Subscribe
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-card>
+
+
+
+
+</ion-content>

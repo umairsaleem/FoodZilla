@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,15 +15,15 @@
 // automatically applied to the <body> element in the app.
 
 .activePageHighlight {
-	background-color: map-get($colors, light);
+  background-color: map-get($colors, light);
 }
 
 ion-title {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 0 90px 1px;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase} from 'angularfire2/database';
-import { PackageItem} from '../../app/models/package.model';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "angularfire2/database";
+import { PackageItem } from "../../app/models/package.model";
 
 /*
   Generated class for the PackageListProvider provider.
@@ -11,22 +11,19 @@ import { PackageItem} from '../../app/models/package.model';
 */
 @Injectable()
 export class PackageListProvider {
+  private $list = this.db.list<PackageItem>("packages");
 
-  private $list =  this.db.list<PackageItem>('packages');
-
-  constructor(private db:AngularFireDatabase) {
-    console.log('Hello PackageListProvider Provider');
+  constructor(private db: AngularFireDatabase) {
+    // console.log("Hello PackageListProvider Provider");
   }
 
-  getList(){
+  getList() {
     return this.$list;
   }
 
-  filterCategory(pkgCategory){
-    return this.db.list<PackageItem>('packages',
-     ref => ref.orderByChild('category').equalTo(pkgCategory));
-    
+  filterCategory(pkgCategory) {
+    return this.db.list<PackageItem>("packages", ref =>
+      ref.orderByChild("category").equalTo(pkgCategory)
+    );
   }
-
-
 }

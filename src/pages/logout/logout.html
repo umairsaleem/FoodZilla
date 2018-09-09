@@ -6,13 +6,18 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Thanks!</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only (click)="logout()">
-              <ion-icon name="person"></ion-icon>Logout
-            </button>
-        </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="person"></ion-icon>Logout
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -20,6 +25,7 @@
 
 <ion-content padding>
 
- <p> Thanks For Subscribing this package.</p>
+  <img *ngIf="show" src="https://firebasestorage.googleapis.com/v0/b/food-app-947b8.appspot.com/o/images%2Ftenor.gif?alt=media&token=0bc85ad6-a3c5-486a-a36c-3fe00cee208f"
+  />
 
 </ion-content>

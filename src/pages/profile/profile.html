@@ -21,6 +21,16 @@
 
 
 <ion-content padding>
-   <h4> Email : {{userEmail}}</h4>
- </ion-content>
- 
+  <ion-list *ngFor="let profile of profileData | async">
+
+    <ion-item>
+      <h5>Name</h5>{{profile.name}}</ion-item>
+    <ion-item>
+      <h5>Email</h5>{{profile.userEmail}}</ion-item>
+    <ion-item>
+      <h5>Address</h5>{{profile.address}}</ion-item>
+    <ion-item>
+      <h5>Phone</h5>{{profile.phone}}</ion-item>
+
+  </ion-list>
+</ion-content>

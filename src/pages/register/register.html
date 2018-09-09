@@ -6,8 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,21 +21,38 @@
 <ion-content padding>
 
   <ion-list>
-    
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="email" #username></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" #password ></ion-input>
-      </ion-item>
-    
-    </ion-list>
-  
-    <div padding>
-      <button ion-button block (click)="registerUser();">Register</button>
-    </div>
-  
+
+
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" #userName></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" #userEmail></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" #password></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" #address></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Contact</ion-label>
+      <ion-input type="number" #phone></ion-input>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button block (click)="registerUser();">Register</button>
+  </div>
+
 </ion-content>

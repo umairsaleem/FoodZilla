@@ -77,7 +77,7 @@ admin.database()
 
 });
 
-/*
+
 exports.recurringPayment = functions.https.onRequest((req, res) => {
   
       const hook  = req.body.type
@@ -109,4 +109,4 @@ exports.recurringPayment = functions.https.onRequest((req, res) => {
   
   
   });
-  */
+  
